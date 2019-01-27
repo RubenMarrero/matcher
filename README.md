@@ -9,6 +9,7 @@ Adicionalmente este archivo lo escribí en inglés debido a que los comentarios 
 3. [Project's Structure](#projects-structure)
 4. [Commands (Installation and Execution)](#commands)
 5. [Important Notes about DatabaseMapper](#important-notes-about-databasemapper)
+6. [Credentials](#credentials)
 
 # How does this project work?
 This project is a [DataMapper's design pattern](https://designpatternsphp.readthedocs.io/en/latest/Structural/DataMapper/README.html) implementation. It relates database's tables with object models written in PHP. In this example implementation we are creating a `db_articulos` database in which we are going to store users and articles.
@@ -71,3 +72,19 @@ This class isn't fully implemented (not even as a MVP). The most urgent missing 
    2. When a model requires data from more than one table to be built `DatabaseMapper()` doesn't know how to handle it.
 
 Its important to notice that with this class fully implemented it would be easy to automatize the whole process of database creation/deletion and data import/export.
+
+# Credentials
+For this project to work its required to create `credentials/credentials.php` file with a code similar to this:
+```php
+<?php
+/**
+ * credenciales de conexion a la base de datos
+ */
+abstract class credentials
+{ 
+  const host = "localhost";
+  const user = "usuario";
+  const password = "password";
+  const database = "db_hospedajes";
+}
+```
