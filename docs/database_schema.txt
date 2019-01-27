@@ -1,0 +1,31 @@
+TABLE idiomas {
+  id INT PK
+  idioma VARCHAR
+}
+
+TABLE usuarios {
+  id INT PK
+  nombre_usuario VARCHAR
+  password VARCHAR
+  email VARCHAR
+  idioma_preferido INT
+  fecha_creacion TIMESTAMP
+}
+
+TABLE articulos {
+  id INT PK
+  id_usuario INT
+  fecha_creacion TIMESTAMP
+}
+TABLE articulos_lang {
+  id INT PK
+  id_articulo INT
+  id_idioma INT
+  titulo VARCHAR
+  contenido TEXT
+}
+
+Ref: usuarios.idioma_preferido > idiomas.id
+Ref: articulos.id_usuario > usuarios.id
+Ref: articulos_lang.id_articulo > articulos.id
+Ref: articulos_lang.id_idioma > idiomas.id

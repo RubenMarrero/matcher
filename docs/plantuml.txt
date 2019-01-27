@@ -1,0 +1,70 @@
+  class Usuario{
+
+    -id : Integer
+    -nombre_usuario : String  
+    -email : String
+    -idioma_preferido : Integer
+    -fecha_creacion : Date
+    
+    +getId() : Integer
+    +getNombreUsuario() : String
+    +getEmail() : String
+    +getIdiomaPreferido() : Integer
+    +getFechaCreacion() : Date
+    +get_modelo() : Array
+    }
+ 
+    class Articulo {
+    -id : Integer
+    -id_usuario : Integer
+    -titulo : String
+    -contenido : String
+    -idioma : Integer
+    
+    +getId() : Integer
+    +getAutor() : Integer
+    +getTitulo() : String
+    +getContenido() : String
+    +getIdioma() : Integer
+    }
+    
+class DatabaseMapper
+{
+  
+  +adapter : StorageAdapter
+  -{static} tableName_to_object : Array
+  +{static} tables : Array
+  +{static} usuarios_columns : Array
+  +{static} idiomas_columns : Array
+  +{static} articulos_columns : Array
+  +{static} articulos_lang_columns : Array
+  
+  +find() : Array|Boolean
+  +insert() : Boolean
+  +erase() : Boolean
+  +update() : Boolean
+  +mapToModel() : Mixed
+
+}
+
+class StorageAdapter
+{
+
+  +db_object_abstraction : mysqli
+  -{static} db_workers : Integer
+  
+  +find() : Array|Boolean
+  +insert() : Boolean
+  +erase() : Boolean
+  +update() : Boolean
+
+}
+
+DatabaseMapper "1" o-- StorageAdapter 
+DatabaseMapper --> Usuario
+DatabaseMapper --> Articulo 
+
+note right of DatabaseMapper : Crea los objetos modelo (Usuario, Articulo,...)\nrelacionados con tablas de la base de datos\nSi se añadiesen más funcionalidades podria\nllegar a resultar útil hacer a estas clases (Usuario,Articulo,...)\nheredar de una clase abstracta Modelo()
+note bottom of StorageAdapter : Sólo deberia de haber 1 y es la única clase que\nusa directamente la base de datos
+note bottom of Articulo : La informacion traducible se obtiene de la tabla articulos_lang\nen base al valor de idioma_preferido de cada usuario\nEj:\n SELECT * FROM articulos\n INNER JOIN articulos_lang\n ON articulos.id=articulos_lang.id_articulo\n WHERE articulos_lang.id_idioma=$Usuario->idioma_preferido
+@enduml
