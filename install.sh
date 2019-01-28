@@ -21,8 +21,6 @@ abstract class credentials
   const database = "db_hospedajes";
 }' > ./credentials/credentials.php
 
-exit
-
 mysql -u $usuario -p$password < ./database/sql/delete_db.sql
 mysql -u $usuario -p$password < ./database/sql/create_db.sql
 
