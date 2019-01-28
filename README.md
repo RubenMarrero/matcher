@@ -77,6 +77,9 @@ Its important to notice that with this class fully implemented it would be easy 
 For this project to work its required to create `credentials/credentials.php` file with a code similar to this:
 ```php
 <?php
+
+namespace matcher\credentials;
+
 /**
  * credenciales de conexion a la base de datos
  */

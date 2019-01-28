@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+namespace matcher\tests;
+
+use matcher\php\ORM\DatabaseMapper;
+use matcher\php\ORM\StorageAdapter;
+use matcher\credentials\credentials;
 use PHPUnit\Framework\TestCase;
 
 require __DIR__."/../php/ORM/DatabaseMapper.php";

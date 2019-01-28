@@ -1,5 +1,7 @@
 <?php 
 
+  namespace matcher\php\ORM;
+
 /**
  *  Esta es la unica clase que interactua directamente con la base de datos.
  */
@@ -18,7 +20,7 @@ class StorageAdapter
   
   public function __construct( $host, $user, $password, $db='' )
   {
-    $this->db_object_abstraction = new mysqli( $host, $user, $password, $db );
+    $this->db_object_abstraction = new \mysqli( $host, $user, $password, $db );
     if($this->db_object_abstraction->connect_error){
       die("ERROR al tratar de conectar con la base de datos.\n");
     } else {

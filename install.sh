@@ -7,6 +7,9 @@ printf "Contraseña del usuario: "
 read -r password
 
 echo '<?php
+
+namespace matcher\credentials;
+
 /**
  * credenciales de conexion a la base de datos
  */
@@ -17,6 +20,8 @@ abstract class credentials
   const password = "password";
   const database = "db_hospedajes";
 }' > ./credentials/credentials.php
+
+exit
 
 mysql -u $usuario -p$password < ./database/sql/delete_db.sql
 mysql -u $usuario -p$password < ./database/sql/create_db.sql

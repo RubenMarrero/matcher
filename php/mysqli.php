@@ -1,7 +1,11 @@
 <?php 
+  
+  namespace matcher\php;
 
-  require __DIR__."/models/Usuario.php";
-  require __DIR__."/models/Articulo.php";
+  use \matcher\php\ORM\DatabaseMapper;
+  use \matcher\php\ORM\StorageAdapter;
+  use \matcher\credentials\credentials;
+
   require __DIR__."/ORM/DatabaseMapper.php";
   require __DIR__."/ORM/StorageAdapter.php";
   require __DIR__."/../credentials/credentials.php";

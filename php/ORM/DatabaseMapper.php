@@ -1,5 +1,7 @@
 <?php
 
+  namespace matcher\php\ORM;
+
 /**
  *  Con esta clase abstracta pretendo hacer una suerte de ENUM que enumere
  *  los distintos tipos de datos que recoge la aplicacion para que a la hora
